@@ -124,3 +124,8 @@ footer td:hover {
 	background-color: #FAFAFA;
 	cursor: pointer;
 }
+
+div.inputBarCode {
+	position: fixed; 
+	bottom: 10;
+}
