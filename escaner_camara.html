@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="css/global.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 <!--  Version antigua  -->
-
 	<script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
 <!--  Version actual quaggarjs   
 	<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
@@ -23,7 +22,7 @@
 <body onload="startScanner()">
 	<div id="scanner-container"></div>
 
-<div class="content" style="position: absolute; top: 270px">
+<div class="content inputBarCode">
 	<table class="col-11">
 		<td class="col-1">
 			<img src="img/camara.png" class="icono btn-img" id="btnChange" onclick="startStopScanner()" alt="Start/Stop the scanner">
@@ -35,7 +34,6 @@
 	<input type="submit" class="btn btn-entrar" value="Buscar" onclick="entrarFormulario()">
 	<button class="btn btn-cancelar" id="btnCancelar" name="cancelar" onClick="cancelar()">Cancelar</button>
 </div>
-
 
 <script src="js/escaner.js"></script>
 
