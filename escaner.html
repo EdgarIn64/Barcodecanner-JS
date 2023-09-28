@@ -1,145 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-	<title>Barcode Scanner</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-
-	<style>
-		/* In order to place the tracking correctly */
-		canvas.drawing, canvas.drawingBuffer {
-			position: absolute;
-			left: 0;
-			top: 0;
-		}
-	</style>
-</head>
+	<title>Escaner</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 <body>
-
-<!-- Div to show the scanner -->
-<div id="scanner-container"></div>
-<input type="button" id="btn" value="Start/Stop the scanner" />
-
-<h1>Correcto</h1>
-<div id="correcto">
-	<p>ABC-7777 <b id="ABC-7777">0</b></p>
-	<p>ABC-8888 <b id="ABC-8888">0</b></p>
-	<p>ABC-4444 <b id="ABC-4444">0</b></p>
-	<p>ABC-5421 <b id="ABC-5421">0</b></p>
-	<p>ABC-abc-5421 <b id="ABC-abc-5421">0</b></p>
+<div class="toolbar">
+	<h1 class="title">SYN-TEX</h1>
+	<!-- Añadir logout -->
 </div>
 
-<h1>Error</h1>
-<div id="error">
+<div class="content">
+	<h3 id="tituloTemporal">Elige un área</h3>
 
+	<div id="escanerSeccion" hidden>
+		<header>
+			<h2 id="areaNombre"></h2>
+			<h2>No. de Rollo</h2>
+			<img id="logo" src="img/escanear.png" alt="">
+		</header>
+
+		<table class="col-11">
+			<td class="col-1">
+				<div id="scanner-container"></div>
+				<img src="img/camara.png" class="icono btn-img" id="btnChange" onclick="changePageScanner()" alt="Start/Stop the scanner">
+			</td>
+			<td>
+				<input type="text" class="form-control" placehorlder="Escanear código" id="codigo_barra" name="codigo_barra" required>	
+			</td>
+		</table>
+		<input type="submit" class="btn btn-entrar" value="Buscar" onclik="entrarFormulario()">
+	</div>
 </div>
 
-<script>
-	var _scannerIsRunning = false;
-	
-	function startScanner() {
-		const correcto = document.getElementById('correcto')
-		const error = document.getElementById('error')
-		const etiquetas = ['ABC-7777', 'ABC-8888', 'ABC-4444', 'ABC-5421', 'ABC-abc-5421']
-		let cont = 0
+<footer>
+	<table>
+		<td onclick="mostrarArea('Almacén')" id="almacen">
+			<img class="icono" src="img/logo.png" alt="Almacén">
+			<br>
+			<label>Almacén</label>
+		</td>
+		<td onclick="mostrarArea('WIP')" id="wip">
+			<img class="icono" src="img/logo.png" alt="WIP">
+			<br>
+			<label>WIP</label>
+		</td>
+		<td onclick="mostrarArea('Rechazos')" id="rechazos">
+			<img class="icono" src="img/logo.png" alt="Rechazos">
+			<br>
+			<label>Rechazos</label>
+		</td>
+	</table>
+</footer>
 
-		Quagga.init({
-			inputStream: {
-				name: "Live",
-				type: "LiveStream",
-				target: document.querySelector('#scanner-container'),
-				constraints: {
-					width: 480,
-					height: 320,
-					facingMode: "environment"
-				},
-			},
-			decoder: {
-				readers: [
-					"code_128_reader",
-					"code_39_reader",
-					"code_39_vin_reader"
-				],
-				debug: {
-					showCanvas: true,
-					showPatches: true,
-					showFoundPatches: true,
-					showSkeleton: true,
-					showLabels: true,
-					showPatchLabels: true,
-					showRemainingPatchLabels: true,
-					boxFromPatches: {
-						showTransformed: true,
-						showTransformedBox: true,
-						showBB: true
-					}
-				}
-			},
+<script src="js/escaner.js"></script>
 
-		}, function (err) {
-			if (err) {
-				console.log(err);
-				return
-			}
-			console.log("Initialization finished. Ready to start");
-			Quagga.start();
-
-			// Set flag to is running
-			_scannerIsRunning = true;
-		});
-
-		Quagga.onProcessed(function (result) {
-			var drawingCtx = Quagga.canvas.ctx.overlay,
-			drawingCanvas = Quagga.canvas.dom.overlay;
-
-			if (result) {
-				if (result.boxes) {
-					let canvasWidth = parseInt(drawingCanvas.getAttribute("width"));
-					let canvasHeight =parseInt(drawingCanvas.getAttribute("height"));
-
-					drawingCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-
-					result.boxes.filter(function (box) {
-						return box !== result.box;
-					}).forEach(function (box) {
-						Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
-					});
-				}
-
-				if (result.box)
-					Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
-
-				if (result.codeResult && result.codeResult.code)
-					Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
-			}
-		});
-
-		Quagga.onDetected(function (result) {
-			console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-			cont++;
-
-			if (etiquetas.includes(result.codeResult.code))
-				document.getElementById(result.codeResult.code).innerHTML = cont;
-			else
-				error.innerHTML += '<p>' + result.codeResult.code + ' - ' + result.codeResult.format + '</p>';
-			});
-		}
-
-
-		// Start/stop scanner
-		document.getElementById("btn").addEventListener("click", function () {
-//			alert(navigator.hardwareConcurrency)
-			if (_scannerIsRunning) {
-				Quagga.stop();
-				_scannerIsRunning = false;
-			} 
-			else
-				startScanner();
-		}, false);
-	</script>
 </body>
-
 </html>

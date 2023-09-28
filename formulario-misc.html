@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title>Formulario Miscelaneos</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="toolbar">
+	<h1 class="title">SYN-TEX</h1>
+	<!-- Añadir logout -->
+</div>
+
+
+<div class="content">
+	<header>
+		<h1>Traspasos</h1>
+		<img src="img/traspaso.png" alt="">
+	</header>
+	<form id="form">
+		<table class="col-11">
+			<tr>
+				<td class="col-2">
+					<label for="nc">NC:</label>
+				</td>
+				<td>
+					<input type="text" class="form-control" disabled="true" value="{{invent.I_NumControl}}">
+				</td>
+			</tr>
+			<tr>
+				<td class="col-2">
+					<label for="almacen">Almacen O.:</label>
+				</td>
+				<td>
+					<input type="text" class="form-control" disabled="true" value="{{invent.I_Almacen}}">
+				</td>
+			</tr>
+			<tr>
+				<td class="col-2">
+					<label for="stock">Stock:</label>
+				</td>
+				<td>
+					<input type="number" class="form-control" disabled="true" value="{{invent.I_Stock}}">
+				</td>
+			</tr>
+			<tr>
+				<td class="col-2">
+					<label for="cantidad">Cantidad:</label>
+				</td>
+				<td>
+					<input type="number" class="form-control" name="cantidad" value="0.0">
+				</td>
+			</tr>
+			<tr>
+				<td class="col-2">
+					<label for="destino">Almacen D.:</label>
+				</td>
+				<td>
+					<select class="form-control">
+						<option>WIP Almacén</option>
+						<option>WIP Almacén</option>
+						<option>WIP Almacén</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="col-2">
+					<label for="orden">No. Orden:</label>
+				</td>
+				<td>
+					<img onclick="scan()">
+					<input id="orden" class="form-control" name="no_orden" type="text" placeholder="Escanear código">
+				</td>
+			</tr>
+		</table>
+
+		<br>
+		<input type="submit" class="btn btn-entrar" name="aplicar" value="Aplicar">
+		<input type="submit" class="btn btn-cancelar" style="font-weight: 700;" name="cancelar" value="Cancelar">
+	</form>
+</div>
+
+</body>
+</html>
+

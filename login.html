@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="toolbar">
+	<h1 class="title">SYN-TEX</h1>
+</div>
+
+<div class="content">
+	<div class="header">
+		<h1>Inicio de Sesión</h1>
+		<img src="img/logo.png" alt="">
+	</div>
+
+	<select class="form-control" id="listaUsuarios" name="usuario">
+		<option>Selecciona el usuario</option>
+		<option>Usuario 1</option>
+		<option>Usuario 2</option>
+		<option>Usuario 3</option>
+	</select>
+
+	<input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña" required="true">
+	<br>
+
+	<button class="btn btn-entrar" id="btnEntrar" name="entrarUsuario" onClick="entrarUsuario()">Entrar</button>
+	<button class="btn btn-cancelar" id="btnNuevo" name="nuevoUsuario" onClick="nuevoUsuario()">Nuevo</button>
+
+	<div class="admin" id="adminDiv">
+		<h1 align="center">Administrador</h1>
+		<input type="text" class="form-control" name="usuario" placeholder="Usuario" required="true" maxlenght="10">
+		<input type="password" class="form-control" name="pass" placeholder="Contraseña" required="true">
+		<br>
+
+		<button class="btn btn-entrar" id="btnAdmin" name="entrarAdmin" onClick="entrarAdmin()">Entrar</button>
+		<button class="btn btn-cancelar" id="btnCancelar" name="cancelar" onClick="cancelar()">Cancelar</button>
+	</div>
+</div>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>
+
+

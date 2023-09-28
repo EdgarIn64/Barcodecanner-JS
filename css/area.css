@@ -1,0 +1,8 @@
+img {
+	width: 25%;
+}
+
+.error {
+	display: none;
+	color: red;
+}

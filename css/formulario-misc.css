@@ -1,0 +1,52 @@
+ion-content {
+    #header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-weight: 500;
+            font-size: 26px;
+        }   
+    }
+
+    #form {
+        margin-top: 3%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #content {
+        margin-top: 2%;
+    }
+}
+
+ion-button {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    width: 90%;
+}
+
+ion-item {
+  --background: rgb(243, 243, 243);
+}
+
+#input {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(157, 157, 157);
+    border-radius: 5px;
+}
+
+#label {
+    font-size: 18px;
+}
+
+img {
+    width: 15%;
+}
+
+.val{
+    color: red;
+}
