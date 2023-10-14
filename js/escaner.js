@@ -2,7 +2,9 @@ var _scannerIsRunning = false;
 	
 function startScanner() {
 	const codigo_barra = document.getElementById('codigo_barra')
-
+	const resultado = document.getElementById('resultado')
+	const blacklist = ['#', "'", ',', '&', ':', '+', '"', '>', '%']
+	
 	Quagga.init({
 		inputStream: {
 			name: "Live",
@@ -73,8 +75,22 @@ function startScanner() {
 	});
 
 	Quagga.onDetected(function (result) {
-		console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
-		codigo_barra.value = result.codeResult.code + ' - ' + result.codeResult.format;
+		let codigo = result.codeResult.code
+		if (codigo.length > 6 && codigo.length < 20) {
+			let continuar = true
+
+			for (let i=0; i < blacklist.length; i++) {
+				if (codigo.includes(blacklist[i])) {
+					console.log(codigo)
+					continuar = false
+					break
+				}
+			}
+			if (continuar) {
+				codigo_barra.value = codigo
+				document.getElementById('btnBuscar').click()
+			}
+		}
 	});
 }
 
