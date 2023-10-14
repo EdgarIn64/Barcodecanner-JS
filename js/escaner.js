@@ -9,13 +9,14 @@ function startScanner() {
 			type: "LiveStream",
 			target: document.querySelector('#scanner-container'),
 			constraints: {
-				width: 480,
-				height: 320,
+				width: 640,
+				height: 350,
 				facingMode: "environment"
 			},
 		},
 		decoder: {
 			readers: [
+				"code_128_reader",
 				"code_39_reader",
 				"code_39_vin_reader"
 			],
