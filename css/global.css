@@ -1,5 +1,20 @@
+.content {
+	font-size: 1.2rem;
+	margin-bottom: 20px;
+}
+
+.content table {
+	margin-bottom: 20px;
+}
+
 .inline {
 	display: inline;
+}
+
+.right {
+	position: absolute;
+	top: 3px;
+	right: 10px;
 }
 
 .form-control {
@@ -9,16 +24,18 @@
 }
 
 header img {
-	width: 25%;
-	max-width: 200px;
+	width: 27%;
+	max-width: 250px;
+	margin: 10px;
 }
 
 body {
 	background-color: #F3F3F3 !important;
 }
 
-.btn {
-	font-weight: bold !important;
+.content .btn {
+	font-weight: bold;
+	font-size: 1.1rem;
 }
 
 .btn-entrar {
@@ -33,7 +50,7 @@ body {
 
 .btn:enabled:hover, .btn-img:hover {
 	cursor: pointer;
-	filter: brightness(107%);
+	filter: brightness(108%);
 }
 
 h1.title {
@@ -50,6 +67,8 @@ h1.title {
 	box-shadow: 2px 2px 4px 1px lightgray;
 	padding: 5px;
 	width: 100%;
+	z-index: 1;
+
 }
 
 select.lista {
@@ -99,7 +118,12 @@ table {
 }
 
 img.icono {
-	width: 70px;
+	width: 60px;
+	margin: 0px;
+}
+
+img.mini-icono {
+	width: 45px;
 	margin: 0px;
 }
 
@@ -125,7 +149,28 @@ footer td:hover {
 	cursor: pointer;
 }
 
-div.inputBarCode {
-	position: fixed; 
-	bottom: 10;
+.error {
+	color: red;
+}
+
+.resultado, .resultado-error {
+	position: fixed;
+	top: 40%;
+	left: 10%;
+	font-size: 1.3rem;
+	width: 85%;
+	border-radius: 10px 10px;
+	box-shadow: 2px 2px 3px 2px gray;
+	color: white;
+	padding: 15px;
+	display: none;
+	z-index: 1;
+}
+
+.resultado {
+	background-color:#2ED26F;
+}
+
+.resultado-error {
+	background-color:#EB455B;
 }
