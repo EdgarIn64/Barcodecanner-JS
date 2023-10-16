@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Escaner</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" type="text/css" href="css/camara.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+<!--  Version antigua  -->
+	<script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
+<!--  Version actual quaggarjs   <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script> -->
+</head>
+<body onload="startScanner()">
+
+<div id="scanner-container"></div>
+
+<div class="content inputBarCode">
+	<table class="col-11">
+		<td class="col-1">
+			<img src="img/camara.png" class="icono btn-img" id="btnChange" onclick="startStopScanner()" alt="Start/Stop the scanner">
+		</td>
+		<td class="col-11">
+			<input type="text" class="form-control" placehorlder="Escanear código" id="codigo_barra" name="codigo" required>	
+		</td>
+	</table>
+	<input type="submit" class="btn btn-entrar" name="btnBuscar" id="btnBuscar" value="Buscar"  onclick="entrarInventario()">
+
+	<button class="btn btn-cancelar" id="btnCancelar" name="cancelar" onclick="cancelarInventario()">Cancelar</button>
+</div>
+
+<script src="js/escaner.js"></script>
+<script src="js/ir_php.js"></script>
+
+</body>
+</html>
