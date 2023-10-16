@@ -24,3 +24,18 @@ function cancelar() {
 	else
 		window.open('http://10.100.16.107/escaner/ord_prod/' + formulario +'.php' + dir, '_self')
 }
+
+function entrarInventario() {
+	const codigo = document.getElementById('codigo_barra').value
+	const searh = window.location.search
+	let dir = searh + '&codigo=' + codigo
+
+	window.open('http://10.100.16.107/escaner/invF/escaner.php' + dir, '_self')
+}
+
+function cancelarInventario() {
+	const dir = window.location.search
+
+	window.open('http://10.100.16.107/escaner/invF/escaner.php' + dir, '_self')
+}
+
