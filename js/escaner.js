@@ -94,7 +94,6 @@ function startScanner() {
 	});
 }
 
-
 // Change page scanner
 function changePageScanner() {
 	window.open('escaner_camara.html', '_self');
@@ -104,13 +103,15 @@ function changePageScanner() {
 // Start/stop scanner
 function startStopScanner() {
 	if (_scannerIsRunning) {
-		Quagga.stop();
-		_scannerIsRunning = false;
-	} 
-	else
+		Quagga.stop()
+		_scannerIsRunning = false
+		btnChange.src = 'img/play.png'
+	}
+	else {
 		startScanner();
+		btnChange.src = 'img/stop.png'		
+	}
 }
-
 
 function mostrarArea(area) {
 	const escanerSeccion = document.getElementById('escanerSeccion')
