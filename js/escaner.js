@@ -76,7 +76,7 @@ function startScanner() {
 
 	Quagga.onDetected(function (result) {
 		let codigo = result.codeResult.code
-		if (codigo.length > 6 && codigo.length < 20) {
+		if (codigo.length < 15) {
 			let continuar = true
 
 			for (let i=0; i < blacklist.length; i++) {
