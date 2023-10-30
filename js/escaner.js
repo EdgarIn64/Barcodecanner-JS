@@ -3,7 +3,6 @@ var _scannerIsRunning = false;
 function startScanner() {
 	const codigo_barra = document.getElementById('codigo_barra')
 	const resultado = document.getElementById('resultado')
-//	const blacklist = ['#', "'", ',', '&', ':', '+', '"', '>', '%', '!', '?']
 	const whiteList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-'.split('');
 
 	Quagga.init({
@@ -79,15 +78,7 @@ function startScanner() {
 		let codigo = result.codeResult.code
 		if (codigo.length < 15) {
 			let continuar = true
-/*
-			for (let i=0; i < blacklist.length; i++) {
-				if (codigo.includes(blacklist[i])) {
-					console.log(codigo)
-					continuar = false
-					break
-				}
-			}
-   */
+
 			for (let i=0; i < codigo.length; i++) {
 				if (!whiteList.includes(codigo[i])) {
 					continuar = false
