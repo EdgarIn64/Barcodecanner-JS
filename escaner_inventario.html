@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE>
+<html lang="es">
 <head>
 	<title>Escaner</title>
 	<meta charset="utf-8">
@@ -25,7 +26,7 @@
 			<img src="img/stop.png" class="icono btn-img" id="btnChange" onclick="startStopScanner()" alt="Start/Stop the scanner">
 		</td>
 		<td class="col-11">
-			<input type="text" class="form-control" placehorlder="Escanear código" id="codigo_barra" name="codigo" required>	
+			<input type="text" class="form-control" placehorlder="Escanear código" id="codigo_barra" name="codigo" onchange="entrarInventario()">	
 		</td>
 	</table>
 	<input type="submit" class="btn btn-entrar" name="btnBuscar" id="btnBuscar" value="Buscar"  onclick="entrarInventario()">
