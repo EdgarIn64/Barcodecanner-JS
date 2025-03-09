@@ -8,7 +8,7 @@ Se muestran 2 ejemplos, los cuales son:
 - Escaneo en vivo
 - Escaneo por imagen
 
-<img src="screenshots/start.png" height="300px">
+<img src="screenshots/start.PNG" height="300px">
 
 ## Escaneo en vivo
 
@@ -22,7 +22,7 @@ _Nota: Se necesita permiso de la camara y que el servidor tenga el protocolo htt
 Al iniciar la página se debe aceptar permisos de usar la cámara.
 Tambien se puede prender y apagar la cámara.
 
-<img src="screenshots/live1.png" height="300px">
+<img src="screenshots/live1.PNG" height="300px">
 
 Comenzara a detectar los códigos de barra que encuentra.
 
@@ -30,21 +30,21 @@ Por defecto el lector que usa es el general, pero para mayor precisión se debe 
 
 Para encontrar el tipo de lector, puedes usar esta página para escanearlo y cuando salga un resultado selecciona el formato que te aparecio debajo del código.
 
-<img src="screenshots/live2.png" height="300px">
+<img src="screenshots/live2.PNG" height="300px">
 
 ## Escaneo por imagen
 
 Escanea una imagen guardada
 
-<img src="screenshots/image1.png" height="300px">
+<img src="screenshots/image1.PNG" height="300px">
 
 Puedes cambiar la imagen haciendo clic en el botón de cámara.
 
-<img src="screenshots/image2.png" height="300px">
+<img src="screenshots/image2.PNG" height="300px">
 
 Ahora escaneara la nueva imagen subida.
 
-<img src="screenshots/image3.png" height="300px">
+<img src="screenshots/image3.PNG" height="300px">
 
 
 ## QuaggaJS
