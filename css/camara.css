@@ -1,6 +1,6 @@
 .inputBarCode {
 	position: absolute; 
-	top: 400px;
+	top: 290px;
 	height: 200px;
 	width: 100%;
 	max-width: 900px;
@@ -9,8 +9,18 @@
 	transform: translateX(-50%);
 }
 
+.showResults {
+	position: absolute; 
+	top: 550px;
+	width: 50%;
+	max-width: 900px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
 /* In order to place the tracking correctly */
-canvas.drawing, canvas.drawingBuffer, #scanner-container   {
+canvas.drawing, canvas.drawingBuffer, #scanner-container, #placeholder-scanner {
 	position: absolute;
 	top: 0px;
 	left: 50%;
@@ -18,8 +28,18 @@ canvas.drawing, canvas.drawingBuffer, #scanner-container   {
 	transform: translateX(-50%)
 }
 
-#scanner-container {
-	top: 100px;
+#scanner-container, #placeholder-scanner {
+	top: 70px;
+}
+
+#placeholder-scanner {
+	border: 2px solid black;
+	border-radius: 10px;
+	background: #f0f0f0;
+	font-size: 2rem;
+	text-align: center;
+	width: 640;
+	height: 300;
 }
 
 

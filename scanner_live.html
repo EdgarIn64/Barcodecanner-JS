@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Barcode Scanner</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" type="text/css" href="css/camara.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="icon" type="image/png" href="img/logo.png">
+	<!-- QuaggaJS Library  -->
+	<script src="js/quagga.min.js"></script>
+</head>
+<body onload="startScanner()">
+	<div class="toolbar">
+		<h1 class="title">Scanner QuaggaJS</h1>
+	</div>
+
+	<div id="scanner-container"></div>
+
+	<div id="placeholder-scanner" class="align-middle">
+		Please press once the play button and wait the box for give the permission for use the camara.
+	</div>
+
+	<div class="content inputBarCode">
+		<table class="col-11 mb-1">
+			<td class="col-1">
+				<img src="img/play.png" class="icono btn-img" id="btnChange" onclick="startStopScanner()" alt="Start/Stop the scanner">
+			</td>
+			<td class="col-10">
+				<input type="text" class="form-control" id="barcode" name="barcode" placeholder="Barcode">	
+				<input type="text" id="format" name="format" placeholder="Format" readonly>
+			</td>
+			<td class="col-1">
+				<label for="decoder_readers">Barcode-Type</label>
+				<select id="decoder_readers" name="decoder_readers" onchange="setReader(this)">
+					<option value="">General</option>
+					<option value="0">Code 128</option>
+					<option value="1">Code 39</option>
+					<option value="2">Code 39 VIN</option>
+					<option value="3">EAN</option>
+					<option value="4">EAN-8</option>
+					<option value="5">UPC</option>
+					<option value="6">UPC-E</option>
+					<option value="7">Codabar</option>
+					<option value="8">I2of5</option>
+					<option value="9">Standard 2 of 5</option>
+					<option value="10">Code 93</option>
+				</select>
+			</td>
+		</table>
+		<input type="submit" class="btn btn-entrar" name="btnSubmit" id="btnSubmit" value="Submit" onclick="showResult()">
+
+		<button class="btn btn-cancelar" id="btnBack" name="back" onclick="back()">Back</button>
+	</div>
+
+	<div class="showResults">
+		<table class="table table-bordered table-light text-center">
+			<thead class="bg-info text-light">
+				<tr>
+					<th>Scan Results</th>
+				</tr>
+			</thead>
+			<tbody id="results">
+			</tbody>
+		</table>
+	</div>
+
+	<script src="js/scannerLive.js"></script>
+</body>
+</html>

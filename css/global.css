@@ -174,3 +174,14 @@ footer td:hover {
 .resultado-error {
 	background-color:#EB455B;
 }
+
+.card-option {
+	display: inline-block;
+	text-center;
+	vertical-align: text-top;
+	background: #fafafa;
+	border-radius: 20px;
+	box-shadow: 1px 1px 1px 2px #90e0e0;
+	padding: 20px;
+}
+

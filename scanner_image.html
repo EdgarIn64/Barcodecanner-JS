@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Barcode Scanner</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="img/logo.png">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" type="text/css" href="css/camara.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- QuaggaJS Library  -->
+	<script src="js/quagga.min.js"></script>
+</head>
+<body>
+	<div class="toolbar">
+		<h1 class="title">Scanner QuaggaJS</h1>
+	</div>
+
+	<div class="content col-11 col-xl-9 mx-auto">
+		<img src="codebar.png?a" height="180px">
+		<h4>Only can read files in the server, you can upload a new barcode image pressing the camara button</h4>
+		<table class="col-6 mx-auto mb-2">
+			<td>
+				<img src="img/camara.png" class="icono btn-img" id="btnChange" onClick="document.getElementById('codebar').click()" alt="Upload file">
+				<form enctype="multipart/form-data" method="post" action="upload_image.php">
+					<input type="file" id="codebar" name="codebar" hidden onChange="document.getElementById('upload').click()" >
+					<input type="submit" id="upload" name="upload" hidden>
+				</form>
+			</td>
+			<td>
+				<label for="decoder_readers">Barcode-Type</label>
+				<select id="decoder_readers" name="decoder_readers" onchange="setReader(this)">
+					<option value="">General</option>
+					<option value="0">Code 128</option>
+					<option value="1">Code 39</option>
+					<option value="2">Code 39 VIN</option>
+					<option value="3">EAN</option>
+					<option value="4">EAN-extended</option>
+					<option value="5">EAN-8</option>
+					<option value="6">UPC</option>
+					<option value="7">UPC-E</option>
+					<option value="8">Codabar</option>
+					<option value="9">I2of5</option>
+					<option value="10">Standard 2 of 5</option>
+					<option value="11">Code 93</option>
+				</select>
+			</td>
+		</table>
+		<input type="submit" class="btn btn-entrar" name="btnSubmit" id="btnSubmit" value="Submit" onclick="startScanner()">
+
+		<button class="btn btn-cancelar" id="btnBack" name="back" onclick="back()">Back</button>
+
+		<h3>Scan Results: <br><span id="scanResult">---</span></h3>
+	</div>
+
+	<script src="js/scannerImage.js"></script>
+</body>
+</html>
